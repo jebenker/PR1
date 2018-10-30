@@ -223,7 +223,7 @@ public class tictactoe {
 				win = true;
 				again = false;
 			}
-		} while (again = true);
+		} while (!win);
 
 	}
 }
