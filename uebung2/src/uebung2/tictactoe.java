@@ -11,6 +11,7 @@ public class tictactoe {
 		System.out.println("Willkommen zu Tic Tac Toe!");
 		int[][] h = { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
 		do {
+			
 			Scanner sc = new Scanner(System.in);
 			System.out.println(
 					"\nWo möchten Sie ihren Kreis setzen? Geben Sie ihre Position ein.\nDie erste Zahl gibt die Reihe an (beginnend mit 0) und die zweite Zahl die Spalte (beginnend mit 0)\n(zB Für das erste Kästchen in der ersten Reihe geben Sie ein: 00 und für das 3.Kästchen in der 2. Reihe: 12)");
@@ -52,7 +53,7 @@ public class tictactoe {
 				switch (spielercomp) {
 				case 0:
 					if (h[0][0] != 0) {
-						spielercomp = (int) (Math.random() * 10);
+						spielercomp = (int) (Math.random() * 9);
 						again = true;
 					} else {
 						h[0][0] = 2;
@@ -61,7 +62,7 @@ public class tictactoe {
 					break;
 				case 1:
 					if (h[0][1] != 0) {
-						spielercomp = (int) (Math.random() * 10);
+						spielercomp = (int) (Math.random() * 9);
 						again = true;
 					} else {
 						h[0][1] = 2;
@@ -70,7 +71,7 @@ public class tictactoe {
 					break;
 				case 2:
 					if (h[0][2] != 0) {
-						spielercomp = (int) (Math.random() * 10);
+						spielercomp = (int) (Math.random() * 9);
 						again = true;
 					} else {
 						h[0][2] = 2;
@@ -79,7 +80,7 @@ public class tictactoe {
 					break;
 				case 3:
 					if (h[1][0] != 0) {
-						spielercomp = (int) (Math.random() * 10);
+						spielercomp = (int) (Math.random() * 9);
 						again = true;
 					} else {
 						h[1][0] = 2;
@@ -88,7 +89,7 @@ public class tictactoe {
 					break;
 				case 4:
 					if (h[1][1] != 0) {
-						spielercomp = (int) (Math.random() * 10);
+						spielercomp = (int) (Math.random() * 9);
 						again = true;
 					} else {
 						h[1][1] = 2;
@@ -97,7 +98,7 @@ public class tictactoe {
 					break;
 				case 5:
 					if (h[1][2] == 1) {
-						spielercomp = (int) (Math.random() * 10);
+						spielercomp = (int) (Math.random() * 9);
 						again = true;
 					} else {
 						h[1][2] = 2;
@@ -106,7 +107,7 @@ public class tictactoe {
 					break;
 				case 6:
 					if (h[2][0] != 0) {
-						spielercomp = (int) (Math.random() * 10);
+						spielercomp = (int) (Math.random() * 9);
 						again = true;
 					} else {
 						h[2][0] = 2;
@@ -115,7 +116,7 @@ public class tictactoe {
 					break;
 				case 7:
 					if (h[2][1] != 0) {
-						spielercomp = (int) (Math.random() * 10);
+						spielercomp = (int) (Math.random() * 9);
 						again = true;
 					} else {
 						h[2][1] = 2;
@@ -124,7 +125,7 @@ public class tictactoe {
 					break;
 				case 8:
 					if (h[2][2] != 0) {
-						spielercomp = (int) (Math.random() * 10);
+						spielercomp = (int) (Math.random() * 9);
 						again = true;
 					} else {
 						h[2][2] = 2;
@@ -132,9 +133,9 @@ public class tictactoe {
 					}
 					break;
 				}
-			} while (!again);
-
-			System.out.print(h);
+			} while (again);
+			
+			
 			for (int i = 0; i < 3; i++) {
 				System.out.print("\n");
 				for (int j = 0; j < 3; j++) {
