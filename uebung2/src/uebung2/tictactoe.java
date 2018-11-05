@@ -9,16 +9,20 @@ public class tictactoe {
 		boolean again = true;
 		boolean win = false;
 		System.out.println("Willkommen zu Tic Tac Toe!");
+		// array tic tac toe field
 		int[][] h = { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
+		// do until again = true; includes input for the user
+		// and computer chooses random field of array
 		do {
-			
+
 			Scanner sc = new Scanner(System.in);
 			System.out.println(
 					"\nWo möchten Sie ihren Kreis setzen? Geben Sie ihre Position ein.\nDie erste Zahl gibt die Reihe an (beginnend mit 0) und die zweite Zahl die Spalte (beginnend mit 0)\n(zB Für das erste Kästchen in der ersten Reihe geben Sie ein: 00 und für das 3.Kästchen in der 2. Reihe: 12)");
 			String s = new String();
 			s = sc.next();
-			
 			int spielercomp = (int) (Math.random() * 9);
+
+			// switch case for input of user, input stored in array
 			switch (s) {
 			case "00":
 				h[0][0] = 1;
@@ -50,6 +54,7 @@ public class tictactoe {
 			}
 
 			do {
+				// switch case computer randomly puts an X in a not-taken field
 				switch (spielercomp) {
 				case 0:
 					if (h[0][0] != 0) {
@@ -134,8 +139,7 @@ public class tictactoe {
 					break;
 				}
 			} while (again);
-			
-			
+
 			for (int i = 0; i < 3; i++) {
 				System.out.print("\n");
 				for (int j = 0; j < 3; j++) {
@@ -148,7 +152,7 @@ public class tictactoe {
 					}
 				}
 			}
-
+			// request if computer or user won and output of the winner
 			if (h[0][0] == 1 && h[0][1] == 1 && h[0][2] == 1) {
 				System.out.println("\nHerzlichen Glückwunsch! Sie haben gewonnen!");
 				win = true;
@@ -225,6 +229,5 @@ public class tictactoe {
 				again = false;
 			}
 		} while (!win);
-
 	}
 }
