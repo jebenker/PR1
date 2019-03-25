@@ -4,45 +4,51 @@ public class VierGewinnt {
 
 	public static void main(String[] args) {
 
-		PCPC a = new PCPC();
-		PCMensch b = new PCMensch();
-		MenschMensch c = new MenschMensch();
+		Spieler spieler1 = null;
+		Spieler spieler2 = null;
 
-		System.out.println("Willkommen zu Vier Gewinnt!\n");
-		Spielfeld [][] spielfeldAusgabe = new Spielfeld();
+		System.out.println("\nWillkommen zu Vier Gewinnt!\n");
+		Spielfeld spielfeldAusgabe = new Spielfeld();
 		spielfeldAusgabe.ausgabe();
-		Scanner start = new Scanner(System.in);
-		System.out.println(
-				"Wie möchten Sie spielen?\nSie gegen den Zufallsspieler (Geben Sie dafür die 1 ein),\nZufallsspieler gegen Zufallsspieler (Geben Sie die 2 ein),\noder möchten Sie zu zweit spielen? (Geben Sie die 3 ein)");
-		int startS = start.nextInt();
-		start.close();
-		if (startS == 2) {
-			a.setzenSpieler1();
-			a.setzenSpieler2();
-			
-/**			System.out.println("Wer darf anfangen? Zufallsspieler 1 oder 2?");
-			Scanner eins = new Scanner(System.in);
-			int einsEingabe = eins.nextInt();
-			eins.close();
-			if (einsEingabe == 1) {
-				a.setzenSpieler1();
-				a.setzenSpieler2();
-			}
-			if (einsEingabe == 2) {
-				a.setzenSpieler2();
-				a.setzenSpieler1();
-			} else {
-				throw new RuntimeException("Bitte machen Sie eine gültige Eingabe!");
-			}
-*/
-		} else if (startS == 1) {
-			// b.setzen();
-		} else if (startS == 3) {
-			// c.setzen();
+		
+		Scanner startSpieler1 = new Scanner(System.in);
+		System.out.println("Spieler 1! Möchten Sie spielen (1), oder soll der Zufallsspieler für Sie spielen (2) ?");
+		int inpSpieler1 = startSpieler1.nextInt();
+
+		Scanner startSpieler2 = new Scanner(System.in);
+		System.out.println("Spieler 2! Möchten Sie spielen (1), oder soll der Zufallsspieler für Sie spielen (2) ?");
+	
+		int inpSpieler2 = startSpieler2.nextInt();
+
+		if (inpSpieler1 == 1) {
+			spieler1 = new Mensch();
+		} else if (inpSpieler1 == 2) {
+			spieler1 = new Zufallsspieler();
+	
+		} else if (inpSpieler2 == 1) {
+			spieler2 = new Mensch();
+		} else if (inpSpieler2 == 2) {
+			spieler2 = new Zufallsspieler();
 		} else {
-			throw new RuntimeException("Bitte machen Sie eine gültige Eingabe. Geben Sie entweder 1, 2 oder 3 ein.");
+			throw new RuntimeException("Bitte machen Sie eine gültige Eingabe!");
 		}
 
-	}
+		Scanner wahl = new Scanner(System.in);
+		System.out.println("Wer darf anfangen? Spieler 1 oder Spieler 2?");
+		int inpWahl = wahl.nextInt();
 
+		if (inpWahl == 1) {
+			spieler1.setzen(spielfeldAusgabe);
+			spieler2.setzen(spielfeldAusgabe);
+			
+		} else if (inpWahl == 2) {
+			spieler2.setzen(spielfeldAusgabe);
+			spieler1.setzen(spielfeldAusgabe);
+		} else {
+			throw new RuntimeException("Bitte machen Sie eine gültige Eingabe!");
+		}
+		startSpieler1.close();
+		startSpieler2.close();
+		wahl.close();
+	}
 }

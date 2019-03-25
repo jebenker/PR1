@@ -53,7 +53,7 @@ public class PCMensch extends Spielfeld {
 	public String setzenSpieler() {
 		String spieler;
 		Scanner spielzug = new Scanner(System.in);
-		int spielzug1 = new Int();
+		int spielzug1 = new int();
 		spielzug1 = spielzug.nextInt();
 		
 		return spielfeld + " ";
