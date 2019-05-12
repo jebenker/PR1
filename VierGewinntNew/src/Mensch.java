@@ -9,6 +9,8 @@ public class Mensch extends Spieler {
 		return null;
 	}
 	
+	// constructor
+	// instance of Mensch
 	public Mensch(String name, char stein) {
 	super.name = name;
 	super.stein = stein;
